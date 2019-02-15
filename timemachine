@@ -218,14 +218,13 @@ point_new_head() {
 # Ask user if they would like to schedule this backup in a timely manner
 prompt_user() {
 	printf "\nWould you like to schedule this backup periodically?%s[y/n]:%s " "${bold}" "${normal}"
-	# Read with timeout of 5s [CHANGE LATER]
 	# read -r response
 	# ONLY FOR TRAVIS SURPASSING PURPOSES
 	response="n"
 	if [ "$response" != "${response#[Yy]}" ] ;then
 		present_menu
 	else
-		logmsg "Backup not scheduled periodically. Quitting..." && exit 1
+		echo "Backup not scheduled periodically. Quitting..." && exit
 	fi
 }
 

@@ -253,7 +253,7 @@ schedule_job() {
 	# EXAMPLE CRONTAB COMMAND
 	# crontab -l | { cat; echo "00 09 * * 1-5 echo hello"; } | crontab -
 	echo "${@}"
-	crontab -l | { cat; echo "${@} timemachine ${SRC} ${DEST}"; } | crontab -
+	crontab -l | { cat; echo "${*} timemachine ${SRC} ${DEST}"; } | crontab -
 	# Check if task set successfully
 }
 

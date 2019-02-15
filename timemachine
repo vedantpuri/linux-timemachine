@@ -20,7 +20,7 @@ MY_DATE="2018-12-22"
 verbose=   # -v Verbose output
 
 # Console text preferences
-underline="$(tput smul)"
+# underline="$(tput smul)"
 bold="$(tput bold)"
 normal="$(tput sgr0)"
 
@@ -218,7 +218,8 @@ point_new_head() {
 # Ask user if they would like to schedule this backup in a timely manner
 prompt_user() {
 	printf "\nWould you like to schedule this backup periodically?${bold}[y/n]:${normal} "
-	read -r response
+	# Read with timeout of 5s [CHANGE LATER]
+	read -t 5 -r response
 	if [ "$response" != "${response#[Yy]}" ] ;then
 		present_menu
 	else

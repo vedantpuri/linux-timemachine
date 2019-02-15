@@ -140,7 +140,7 @@ validate_args() {
 	# Target directory check
 	if [ ! -d "${2}" ] && [ ! -f "${2}" ]; then
 		echo "Target directory does not exist."
-		printf "Would you like to create a new one?${bold}[y/n]${normal}: "
+		printf "Would you like to create a new one?%s[y/n]%s: " "${bold}" "${normal}"
 		read -r response
 		if [ "$response" != "${response#[Yy]}" ] ;then
 			mkdir "${2}"
@@ -219,7 +219,7 @@ point_new_head() {
 prompt_user() {
 	printf "\nWould you like to schedule this backup periodically?${bold}[y/n]:${normal} "
 	# Read with timeout of 5s [CHANGE LATER]
-	read -t 5 -r response
+	read -r response
 	if [ "$response" != "${response#[Yy]}" ] ;then
 		present_menu
 	else
@@ -228,9 +228,9 @@ prompt_user() {
 }
 
 present_menu() {
-	echo "\n${bold}Scheduling Options:${normal}\n"
-	echo "1. Hourly	2. Weekly	3.Quit\n"
-	printf "Please choose an option from the menu above to schedule your backup ${bold}[1-3]${normal}: "
+	printf "\n%sScheduling Options:%s\n" "${bold}" "${normal}"
+	printf "1. Hourly	2. Weekly	3.Quit\n"
+	printf "Please choose an option from the menu above to schedule your backup %s[1-3]%s: " "${bold}" "${normal}"
 	read -r response
 	case $response in
 		1)

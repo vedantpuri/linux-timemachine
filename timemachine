@@ -221,7 +221,7 @@ prompt_user() {
 	# Read with timeout of 5s [CHANGE LATER]
 	# read -r response
 	# ONLY FOR TRAVIS SURPASSING PURPOSES
-	local response="n"
+	response="n"
 	if [ "$response" != "${response#[Yy]}" ] ;then
 		present_menu
 	else
